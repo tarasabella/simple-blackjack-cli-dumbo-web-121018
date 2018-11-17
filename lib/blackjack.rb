@@ -36,16 +36,23 @@ def initial_round
   display_card_total(card_total) #once you have figured out the sum of your two cards, you can pass the total in as an argumnt so your phrase is displayed.
   return card_total
   end
-end 
-
-def hit?(number)
-  get_user_input
-  return #{display_card_total}
-  # code hit? here
+end
+def hit?(card_total)
+  prompt_user #ask the user if they want to hit or stay
+  user_input = get_user_input #set a variable to use for your if/else statement
+  if user_input == "h"
+    card_total += deal_card #increase your former total by the new number given by dealing another card
+  elsif user_input == "s"
+    card_total #return the number and prompt user to hit again
+  else
+    invalid_command
+  end
 end
 
 def invalid_command
-  # code invalid_command here
+  puts "Please enter a valid command"
+  prompt_user
+  get_user_input
 end
 
 #####################################################
@@ -53,6 +60,13 @@ end
 #####################################################
 
 def runner
-  # code runner here
+  welcome #introduce the game
+  sleep 0.75
+  card_total = initial_round #determine your current total & tell user what number they currently have
+  until card_total > 21 #continue game until user loses
+    card_total = hit?(card_total)
+    display_card_total(card_total)
+  end
+  end_game(card_total) #prints out once user has lost
 end
-    
+
