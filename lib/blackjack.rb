@@ -35,10 +35,8 @@ def initial_round
   card_total = card_one + card_two
   display_card_total(card_total) #once you have figured out the sum of your two cards, you can pass the total in as an argumnt so your phrase is displayed.
   return card_total
-enddef initial_round
- puts #{display_card_total}
-  # code #initial_round here
-end
+  end
+end 
 
 def hit?(number)
   get_user_input
