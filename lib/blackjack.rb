@@ -30,10 +30,13 @@ def end_game(card_total)
 end
 
 def initial_round
+ puts #{display_card_total}
   # code #initial_round here
 end
 
-def hit?
+def hit?(number)
+  get_user_input
+  return #{display_card_total}
   # code hit? here
 end
 
